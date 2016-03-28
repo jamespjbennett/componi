@@ -1,7 +1,7 @@
-function proceedToFirstLesson(){
-	alert('first lesson');
-}
+// function proceedToFirstLesson(){
+// 	alert('first lesson');
+// }
 
 $(document).ready(function(){
-	$('#click-to-start').on('click', proceedToFirstLesson)
+	// $('#click-to-start').on('click', proceedToFirstLesson)
 })
