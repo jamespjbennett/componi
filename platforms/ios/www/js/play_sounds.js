@@ -28,9 +28,21 @@ function generateMajorChord(chord){
 	var chordArray = chord.split('');
 	chordArray.pop();
 	var note1 = chordArray.join('');
-	var numberIndex = Number(noteMatchObject.getKeyByValue(note1))
-	var secondNote = noteMatchObject[numberIndex + 4] + chord.split('')[chord.length - 1];
-	var thirdNote = noteMatchObject[numberIndex +7] + chord.split('')[chord.length - 1];
+	var numberIndex = Number(noteMatchObject.getKeyByValue(note1));
+	var secondNoteIndex = numberIndex + 4;
+	var thirdNoteIndex = numberIndex + 7;
+	var secondNoteScaleValue = chord.split('')[chord.length - 1];
+	var thirdNoteScaleValue = chord.split('')[chord.length - 1];
+	if(secondNoteIndex > 12){
+		secondNoteIndex = secondNoteIndex - 12;
+		secondNoteScaleValue = String(Number(chord.split('')[chord.length - 1]) + 1)
+	}
+	if(thirdNoteIndex> 12){
+		thirdNoteIndex = thirdNoteIndex - 12;
+		thirdNoteScaleValue = String(Number(chord.split('')[chord.length - 1]) + 1)
+	}
+	var secondNote = noteMatchObject[secondNoteIndex] + secondNoteScaleValue;
+	var thirdNote = noteMatchObject[thirdNoteIndex] + thirdNoteScaleValue;
 	return [chord,secondNote, thirdNote ]
 }
 
