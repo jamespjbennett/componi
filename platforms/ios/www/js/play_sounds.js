@@ -32,12 +32,20 @@ var mixerTrack = new Wad.Poly({
         workerPath : '../../js/recorderWorker.js' // The path to the Recorder.js web worker script.
     }
 })
-mixerTrack.add(triangle)
+mixerTrack.add(saw)
 
 
 
 function recordSound(){
-	debugger
+	mixerTrack.rec.record();
+}
+
+function stopRecording(){
+	mixerTrack.rec.stop();
+	mixerTrack.rec.createWad(); 
+	if(mixerTrack.rec.recordings.length > 0){
+		mixerTrack.rec.recordings[0].play();
+	};
 }
 
 
@@ -192,4 +200,5 @@ $(document).ready(function(){
 	$('.chord-circle-major').on('click', playChordMajor);
 	$('.play-example').on('click', playExample);
 	$('#record').on('click', recordSound);
+	$('.stop-recording').on('click', stopRecording);
 })
