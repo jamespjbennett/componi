@@ -9,6 +9,8 @@ Object.prototype.getKeyByValue = function( value ) {
 
 // set up the oscillator sound
 var saw = new Wad({source : 'sawtooth'})
+var triangle = new Wad({source : 'triangle'})
+
 var noteMatchObject = {
 	1: 'C',
 	2: 'C#',
@@ -140,9 +142,24 @@ function playChordMajor(freqs){
 
 }
 
+function startMetronome(){
+		triangle.play({
+		    volume  : 0.8,
+		    wait    : 0,     // Time in seconds between calling play() and actually triggering the note.
+		    loop    : true, // This overrides the value for loop on the constructor, if it was set. 
+		    pitch   : 'A4',  // A4 is 440 hertz.
+		    label   : 'A',   // A label that identifies this note.
+		    env     : {hold : 0.07},
+		    panning : [1, -1, 10],
+		    filter  : {frequency : 100},
+		    // delay   : {delayTime : .8}
+		})
+}
+
 
 
 $(document).ready(function(){
 	$('.chord-circle-major').on('click', playChordMajor);
 	$('.play-example').on('click', playExample);
+	$('.go-button').on('click', startMetronome);
 })
