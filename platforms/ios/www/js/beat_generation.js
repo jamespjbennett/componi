@@ -19,17 +19,25 @@ soundManager.setup({
     function startMetronome(){
       if($(this).hasClass('stopped')){
         loopSound(mySound)
-        $(this).removeClass('stopped');
-        $(this).find('p').text('STOP');
+        if(!$(this).hasClass('record')){
+          $(this).removeClass('stopped');
+          $(this).find('p').text('STOP');
+        }
       }else{
         mySound.stop();
-        $(this).addClass('stopped');
-        $(this).find('p').text('GO');
-
+        if(!$(this).hasClass('record')){
+          $(this).addClass('stopped');
+          $(this).find('p').text('GO');
+        };
       }
     }
    
     $('#metronome').on('click', startMetronome);
+    $('.go-button.record').on('click', startMetronome);
+    $('.stop-recording').click(function(){
+      mySound.stop();
+      $(this).addClass('stopped');
+    })
   },
 
   // mySound.stop();
