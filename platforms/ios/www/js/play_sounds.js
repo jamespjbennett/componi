@@ -37,11 +37,15 @@ mixerTrack.add(saw)
 
 
 function recordSound(){
+	mixerTrack.rec.clear();
 	mixerTrack.rec.recordings = [];
 	mixerTrack.rec.record();
+	$('#record').css('background', 'pink');
 }
 
 function stopRecording(){
+	$('#record').css('background', 'white');
+
 	mixerTrack.rec.stop();
 	mixerTrack.rec.createWad(); 
 }
