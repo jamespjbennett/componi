@@ -24,6 +24,17 @@ var noteMatchObject = {
 	12: 'B'
 }
 
+function playExample(){
+	var freqs1 = generateMajorChord('C4');
+	var freqs2 = generateMajorChord('F4');
+	var freqs3 = generateMajorChord('G4');
+	basicHarmonyExample1(freqs1, freqs2, freqs3 );
+}
+
+function basicHarmonyExample1(freqs1, freqs2, freqs3 ){
+	playChordMajor(freqs1);
+}
+
 function generateMajorChord(chord){
 	var chordArray = chord.split('');
 	chordArray.pop();
@@ -46,9 +57,11 @@ function generateMajorChord(chord){
 	return [chord,secondNote, thirdNote ]
 }
 
-function playChordMajor(){
-	var chord = $(this).attr('id');
-	var freqs = generateMajorChord(chord);
+function playChordMajor(freqs){
+	if(Object.prototype.toString.call( freqs ) !== '[object Array]' ){
+		var chord = $(this).attr('id');
+		var freqs = generateMajorChord(chord);
+	};
 	$.each(freqs, function(index, note){
 		saw.play({
 		    volume  : 0.8,
@@ -69,5 +82,6 @@ function playChordMajor(){
 
 
 $(document).ready(function(){
-	$('.chord-circle').on('click', playChordMajor);
+	$('.chord-circle-major').on('click', playChordMajor);
+	$('.play-example').on('click', playExample);
 })
