@@ -37,15 +37,13 @@ mixerTrack.add(saw)
 
 
 function recordSound(){
+	mixerTrack.rec.recordings = [];
 	mixerTrack.rec.record();
 }
 
 function stopRecording(){
 	mixerTrack.rec.stop();
 	mixerTrack.rec.createWad(); 
-	if(mixerTrack.rec.recordings.length > 0){
-		mixerTrack.rec.recordings[0].play();
-	};
 }
 
 
@@ -166,6 +164,12 @@ function playChordMajor(freqs){
 
 }
 
+function playRecording(){
+	if(mixerTrack.rec.recordings.length > 0){
+		mixerTrack.rec.recordings[0].play();
+	};
+}
+
 // function startMetronome(){
 	
 // 		triangle.play({
@@ -201,4 +205,5 @@ $(document).ready(function(){
 	$('.play-example').on('click', playExample);
 	$('#record').on('click', recordSound);
 	$('.stop-recording').on('click', stopRecording);
+	$('.play-recording').on('click', playRecording);
 })
