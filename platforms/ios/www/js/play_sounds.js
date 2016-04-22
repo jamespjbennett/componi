@@ -27,6 +27,20 @@ var noteMatchObject = {
 	11: 'Bb',
 	12: 'B'
 }
+var mixerTrack = new Wad.Poly({
+    recConfig : { // The Recorder configuration object. The only required property is 'workerPath'.
+        workerPath : '../../js/recorderWorker.js' // The path to the Recorder.js web worker script.
+    }
+})
+mixerTrack.add(triangle)
+
+
+
+function recordSound(){
+	debugger
+}
+
+
 
 function playExample(){
 	var freqs1 = generateMajorChord('C4');
@@ -177,4 +191,5 @@ function playChordMajor(freqs){
 $(document).ready(function(){
 	$('.chord-circle-major').on('click', playChordMajor);
 	$('.play-example').on('click', playExample);
+	$('#record').on('click', recordSound);
 })
