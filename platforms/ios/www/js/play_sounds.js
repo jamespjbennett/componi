@@ -28,7 +28,13 @@ function playExample(){
 	var freqs1 = generateMajorChord('C4');
 	var freqs2 = generateMajorChord('F4');
 	var freqs3 = generateMajorChord('G4');
-	basicHarmonyExample1(freqs1, freqs2, freqs3 );
+	if($(this).attr('id') == "example_1"){
+		basicHarmonyExample1(freqs1, freqs2, freqs3 );
+	}else if($(this).attr('id') == "example_2"){
+		basicHarmonyExample2(freqs1, freqs2, freqs3 );
+	}else{
+		basicHarmonyExample3(freqs1, freqs2, freqs3 );
+	};
 }
 
 function basicHarmonyExample1(freqs1, freqs2, freqs3 ){
@@ -39,6 +45,48 @@ function basicHarmonyExample1(freqs1, freqs2, freqs3 ){
 			playChordMajor(freqs3);
 			setTimeout(function(){
 				playChordMajor(freqs2);
+				setTimeout(function(){
+					playChordMajor(freqs1);
+				}, 1000);
+			}, 1000);
+		}, 1000);
+	}, 1000);
+
+	// playChordMajor(freqs3);
+}
+
+function basicHarmonyExample2(freqs1, freqs2, freqs3 ){
+	playChordMajor(freqs1);
+	setTimeout(function(){
+		playChordMajor(freqs1);
+		setTimeout(function(){
+			playChordMajor(freqs2);
+			setTimeout(function(){
+				playChordMajor(freqs1);
+				setTimeout(function(){
+					playChordMajor(freqs3);
+					setTimeout(function(){
+						playChordMajor(freqs2);
+						setTimeout(function(){
+							playChordMajor(freqs1);
+						}, 1000);
+					}, 1000);
+				}, 1000);
+			}, 1000);
+		}, 1000);
+	}, 1000);
+
+	// playChordMajor(freqs3);
+}
+
+function basicHarmonyExample3(freqs1, freqs2, freqs3 ){
+	playChordMajor(freqs1);
+	setTimeout(function(){
+		playChordMajor(freqs3);
+		setTimeout(function(){
+			playChordMajor(freqs2);
+			setTimeout(function(){
+				playChordMajor(freqs3);
 				setTimeout(function(){
 					playChordMajor(freqs1);
 				}, 1000);
