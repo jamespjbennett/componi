@@ -7,6 +7,8 @@ Object.prototype.getKeyByValue = function( value ) {
     }
 }
 
+metroNomeStatus = false;
+
 // set up the oscillator sound
 var saw = new Wad({source : 'sawtooth'})
 var triangle = new Wad({source : 'triangle'})
@@ -143,6 +145,7 @@ function playChordMajor(freqs){
 }
 
 function startMetronome(){
+	
 		triangle.play({
 		    volume  : 0.8,
 		    wait    : 0,     // Time in seconds between calling play() and actually triggering the note.
@@ -154,6 +157,19 @@ function startMetronome(){
 		    filter  : {frequency : 100},
 		    // delay   : {delayTime : .8}
 		})
+		setTimeout(function(){
+
+		}, 800);
+	
+}
+
+function metroNomeChangeState(){
+	if(metroNomeStatus == false){
+		metroNomeStatus = true;
+		startMetronome()
+	}else{
+		metroNomeStatus = false;
+	}
 }
 
 
@@ -161,5 +177,5 @@ function startMetronome(){
 $(document).ready(function(){
 	$('.chord-circle-major').on('click', playChordMajor);
 	$('.play-example').on('click', playExample);
-	$('.go-button').on('click', startMetronome);
+	$('.go-button').on('click', metroNomeChangeState);
 })
