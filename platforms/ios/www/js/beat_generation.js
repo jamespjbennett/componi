@@ -46,7 +46,9 @@ soundManager.setup({
     $('.decrease-tempo').on('click', decreaseTempo);
     $('.stop-recording').click(function(){
       mySound.stop();
-      $(this).addClass('stopped');
+      $('.go-button').addClass('stopped');
+      $('.go-button').find('p').text('TAP');
+
     })
   },
 
