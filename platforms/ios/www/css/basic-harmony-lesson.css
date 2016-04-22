@@ -5,6 +5,7 @@
 }
 
 .chord-circle{
+    display: table;
     border: 1px solid black;
     border-radius: 50%;
     margin: 0 auto;
@@ -17,5 +18,9 @@
 	width: 30%;
     height: 33%;
     display: inline-block;
+}
+.chord-circle p {
+    display: table-cell;
+    vertical-align: middle;
 }
 
