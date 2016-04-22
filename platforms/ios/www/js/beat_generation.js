@@ -5,13 +5,13 @@ soundManager.setup({
       id: 'aSound',
       url: '../../audio/RS.WAV'
     });
-
+    tempo = 200
     function loopSound(sound) {
       sound.play({
         onfinish: function() {
           setTimeout(function(){
             loopSound(mySound);
-          }, 200)
+          }, tempo)
         }
       });
     }
@@ -27,13 +27,23 @@ soundManager.setup({
         mySound.stop();
         if(!$(this).hasClass('record')){
           $(this).addClass('stopped');
-          $(this).find('p').text('GO');
+          $(this).find('p').text('TAP');
         };
       }
+    }
+
+    function increaseTempo(){
+      tempo = tempo - 50;
+    };
+
+    function decreaseTempo(){
+      tempo = tempo + 50;
     }
    
     $('#metronome').on('click', startMetronome);
     $('.go-button.record').on('click', startMetronome);
+    $('.increase-tempo').on('click', increaseTempo);
+    $('.decrease-tempo').on('click', decreaseTempo);
     $('.stop-recording').click(function(){
       mySound.stop();
       $(this).addClass('stopped');

@@ -1,7 +1,7 @@
 .chord-circles{
 	width: 80%;
 	margin: 0 auto;
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 }
 
 .chord-circle{
@@ -26,8 +26,8 @@
 
 .go-button{
     display: table;
-    width: 30px;
-    height: 30px;
+    width: 98px;
+    height: 57px;
     border: 1px solid black;
     padding: 4px;
     float: right;
@@ -38,5 +38,26 @@
 .go-button p {
     display:table-cell;
     vertical-align: middle;
+}
+
+#record p {
+    display:block;
+}
+
+.record{
+    width: 93px;
+    height: 53px;
+    border-radius: 40px;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}
+
+.tempo-container{
+    display: block;
+    clear: both;
+    float: right;
+    margin-right: 14px;
+    margin-right: 57px;
 }
 

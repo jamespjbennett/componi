@@ -27,9 +27,16 @@
     </header>
     <div id="homepage-wrapper">
         <div class="go-button-container">
-            <div class="go-button stopped record" id="record" data-sound="../sounds/RS.WAV">
-                <p>RECORD</p>
+            <div class="go-button-container">
+                <div class="go-button stopped" id="metronome" data-sound="../sounds/RS.WAV">
+                    <p>TAP</p>
+                </div>
+             </div>
+            <div class="tempo-container">
+                <p class="increase-tempo">+ Tempo</p>
+                <p class="decrease-tempo">- Tempo</p>
             </div>
+
         </div>
     	<div class="lesson-stage-wrapper">
 
@@ -44,6 +51,9 @@
                     <div class="chord-circle chord-circle-major" id="G4"><p>5</p></div>
                 </div>
 	    	</div>
+            <div class="record" id="record" data-sound="../sounds/RS.WAV">
+                <p>RECORD</p>
+            </div>
             <button class='stop-recording'>STOP</button>
             <button class='play-recording'>PLAY</button>
     <!--         <a href="basic-harmony-4.html">
