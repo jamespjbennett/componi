@@ -33,6 +33,20 @@ function playExample(){
 
 function basicHarmonyExample1(freqs1, freqs2, freqs3 ){
 	playChordMajor(freqs1);
+	setTimeout(function(){
+		playChordMajor(freqs2);
+		setTimeout(function(){
+			playChordMajor(freqs3);
+			setTimeout(function(){
+				playChordMajor(freqs2);
+				setTimeout(function(){
+					playChordMajor(freqs1);
+				}, 1000);
+			}, 1000);
+		}, 1000);
+	}, 1000);
+
+	// playChordMajor(freqs3);
 }
 
 function generateMajorChord(chord){
@@ -69,16 +83,15 @@ function playChordMajor(freqs){
 		    loop    : false, // This overrides the value for loop on the constructor, if it was set. 
 		    pitch   : note,  // A4 is 440 hertz.
 		    label   : 'A',   // A label that identifies this note.
-		    env     : {hold : 0.1, release: 0.5},
+		    env     : {hold : 0.1, release: 0.8},
 		    panning : [1, -1, 10],
 		    filter  : {frequency : 100},
 		    delay   : {delayTime : .8}
 		})
 	});
+
 }
-// setTimeout(function(){
-// 	saw.stop();
-// }, 200)
+
 
 
 $(document).ready(function(){
